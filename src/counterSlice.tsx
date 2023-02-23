@@ -1,29 +1,38 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface StateType {
+  musicalCnt: number;
+  movieCnt: number;
+  classicCnt: number;
+  educationCnt: number;
+  concertCnt: number;
+}
+
+const initialState: StateType = {
+  musicalCnt: 0,
+  movieCnt: 0,
+  classicCnt: 0,
+  educationCnt: 0,
+  concertCnt: 0,
+};
+
 const counterSlice = createSlice({
-  name: "userInformation",
-  initialState: {
-    musicalCnt: 0,
-    movieCnt: 0,
-    classicCnt: 0,
-    educationCnt: 0,
-    concertCnt: 0,
-    recommendData: undefined,
-  },
+  name: "counter",
+  initialState,
   reducers: {
-    musicalCntUpdate: (state) => {
+    musicalCntUpdate: (state: StateType) => {
       state.musicalCnt = state.musicalCnt + 1;
     },
-    movieCntUpdate: (state) => {
+    movieCntUpdate: (state: StateType) => {
       state.movieCnt = state.movieCnt + 1;
     },
-    classicCntUpdate: (state) => {
+    classicCntUpdate: (state: StateType) => {
       state.classicCnt = state.classicCnt + 1;
     },
-    educationCntUpdate: (state) => {
+    educationCntUpdate: (state: StateType) => {
       state.educationCnt = state.educationCnt + 1;
     },
-    concertCntUpdate: (state) => {
+    concertCntUpdate: (state: StateType) => {
       state.concertCnt = state.concertCnt + 1;
     },
   },

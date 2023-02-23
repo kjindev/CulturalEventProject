@@ -7,6 +7,8 @@ interface propsType {
     GUNAME: string;
     MAIN_IMG: string;
     TITLE: string;
+    DATE: string;
+    PLACE: string;
   }[];
 }
 

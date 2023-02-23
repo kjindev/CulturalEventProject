@@ -1,25 +1,35 @@
 import { Routes, Route } from "react-router-dom";
 import { useQuery } from "react-query";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Home from "./Home";
 import Detail from "./Detail";
-import Modal from "./Modal";
+import { useDispatch } from "react-redux";
+import {
+  musicalDataUpdate,
+  movieDataUpdate,
+  classicDataUpdate,
+  educationDataUpdate,
+  concertDataUpdate,
+} from "./dataSlice";
 
 interface dataType {
   CODENAME: string;
   GUNAME: string;
   MAIN_IMG: string;
   TITLE: string;
+  DATE: string;
+  PLACE: string;
 }
 
 function App() {
   const [data, setdata] = useState<dataType[]>([]);
-  const [musicalData, setMusicalData] = useState<dataType[]>([]);
-  const [movieData, setMovieData] = useState<dataType[]>([]);
-  const [classicData, setClassicData] = useState<dataType[]>([]);
-  const [educationData, setEducationData] = useState<dataType[]>([]);
-  const [concertData, setConcertData] = useState<dataType[]>([]);
+  let musicalData: dataType[] = [];
+  let movieData: dataType[] = [];
+  let classicData: dataType[] = [];
+  let educationData: dataType[] = [];
+  let concertData: dataType[] = [];
 
+  const dispatch = useDispatch();
   const query = useQuery("culture", async () =>
     (
       await fetch(
@@ -35,7 +45,7 @@ function App() {
   }, [query.status]);
 
   useEffect(() => {
-    if (data) {
+    if (data.length !== 0) {
       for (let i = 0; i < data.length; i++) {
         if (
           data[i].CODENAME === "뮤지컬/오페라" ||
@@ -63,18 +73,16 @@ function App() {
           concertData.push(data[i]);
         }
       }
+      dispatch(musicalDataUpdate(musicalData));
+      dispatch(movieDataUpdate(movieData));
+      dispatch(classicDataUpdate(classicData));
+      dispatch(educationDataUpdate(educationData));
+      dispatch(concertDataUpdate(concertData));
     }
   }, [data]);
 
   return (
     <>
-      <Modal
-        musicalData={musicalData}
-        movieData={movieData}
-        classicData={classicData}
-        educationData={educationData}
-        concertData={concertData}
-      />
       <Routes>
         <Route path="/" element={<Home data={data} />} />
         <Route path="/:name/:index" element={<Detail />} />
