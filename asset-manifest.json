@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/CulturalEventProject/static/css/main.873f6780.css",
+    "main.js": "/CulturalEventProject/static/js/main.01612dde.js",
+    "index.html": "/CulturalEventProject/index.html",
+    "main.873f6780.css.map": "/CulturalEventProject/static/css/main.873f6780.css.map",
+    "main.01612dde.js.map": "/CulturalEventProject/static/js/main.01612dde.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.873f6780.css",
+    "static/js/main.01612dde.js"
+  ]
+}
