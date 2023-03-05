@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 import { BsXCircle, BsChatRightDotsFill } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { recommendDataUpdate } from "./dataSlice";
-import { modalVisible, fadeinEffect } from "./effectSlice";
+import { recommendDataUpdate } from "../store/dataSlice";
+import { modalVisible, fadeinEffect } from "../store/effectSlice";
 import { useQueryClient } from "react-query";
-import { RootState } from "./store";
+import { RootState } from "../store/store";
 
 interface DataType {
   CODENAME: string;
@@ -48,28 +48,28 @@ export default function Modal() {
 
   useEffect(() => {
     if (effect.modalState === false) {
-      if (count.musicalCnt > 3) {
+      if (count.musicalCnt >= 3) {
         dispatch(fadeinEffect(true));
         dispatch(
           recommendDataUpdate(
             data.musicalData[Math.ceil(Math.random() * data.musicalData.length)]
           )
         );
-      } else if (count.movieCnt > 3) {
+      } else if (count.movieCnt >= 3) {
         dispatch(fadeinEffect(true));
         dispatch(
           recommendDataUpdate(
             data.movieData[Math.ceil(Math.random() * data.movieData.length)]
           )
         );
-      } else if (count.classicCnt > 3) {
+      } else if (count.classicCnt >= 3) {
         dispatch(fadeinEffect(true));
         dispatch(
           recommendDataUpdate(
             data.classicData[Math.ceil(Math.random() * data.classicData.length)]
           )
         );
-      } else if (count.educationCnt > 3) {
+      } else if (count.educationCnt >= 3) {
         dispatch(fadeinEffect(true));
         dispatch(
           recommendDataUpdate(
@@ -78,7 +78,7 @@ export default function Modal() {
             ]
           )
         );
-      } else if (count.concertCnt > 3) {
+      } else if (count.concertCnt >= 3) {
         dispatch(fadeinEffect(true));
         dispatch(
           recommendDataUpdate(

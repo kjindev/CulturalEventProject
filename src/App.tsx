@@ -1,8 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import { useQuery } from "react-query";
 import { useEffect, useState } from "react";
-import Home from "./Home";
-import Detail from "./Detail";
+import Home from "./mainPage/Home";
+import Detail from "./routePage/Detail";
 import { useDispatch } from "react-redux";
 import {
   musicalDataUpdate,
@@ -10,7 +10,7 @@ import {
   classicDataUpdate,
   educationDataUpdate,
   concertDataUpdate,
-} from "./dataSlice";
+} from "./store/dataSlice";
 
 interface dataType {
   CODENAME: string;
@@ -33,7 +33,7 @@ function App() {
   const query = useQuery("culture", async () =>
     (
       await fetch(
-        `http://openapi.seoul.go.kr:8088/${process.env.REACT_APP_API_KEY}/json/culturalEventInfo/1/300/`
+        "https://port-0-culturaleventapi-server-r8xoo2mles8gzra.sel3.cloudtype.app/"
       )
     ).json()
   );

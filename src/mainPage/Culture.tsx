@@ -7,8 +7,8 @@ import {
   classicCntUpdate,
   educationCntUpdate,
   concertCntUpdate,
-} from "./counterSlice";
-import Modal from "./Modal";
+} from "../store/counterSlice";
+import Modal from "../routePage/Modal";
 
 interface propsType {
   data: {
