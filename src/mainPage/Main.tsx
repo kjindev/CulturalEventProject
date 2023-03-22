@@ -1,7 +1,6 @@
 import { useRef } from "react";
 
 export default function Main() {
-  const fadeinRef = useRef<HTMLInputElement>(null);
   const textRef = useRef<HTMLInputElement>(null);
 
   return (
@@ -17,10 +16,7 @@ export default function Main() {
           <div>you can get away with.</div>
         </div>
         <hr className="mx-[45%] my-12" />
-        <div
-          ref={fadeinRef}
-          className="px-[10%] md:px-[15%] lg:px-[20%] fadein-effect text-xs lg:text-sm text-center"
-        >
+        <div className="px-[10%] md:px-[15%] lg:px-[20%] fadein-effect text-xs lg:text-sm text-center">
           우리를 일상에서 벗어나게 해주는 모든 것은 예술이 됩니다. 누군가에게는
           추억, 누군가에게는 쉼터, 누군가에게는 즐거움이 되어주는 우리의 예술과
           문화. 그 예술과 문화의 공간을 공유합니다.

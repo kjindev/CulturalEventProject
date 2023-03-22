@@ -23,11 +23,6 @@ interface dataType {
 
 function App() {
   const [data, setdata] = useState<dataType[]>([]);
-  let musicalData: dataType[] = [];
-  let movieData: dataType[] = [];
-  let classicData: dataType[] = [];
-  let educationData: dataType[] = [];
-  let concertData: dataType[] = [];
 
   const dispatch = useDispatch();
   const query = useQuery("culture", async () =>
@@ -45,6 +40,12 @@ function App() {
   }, [query.status]);
 
   useEffect(() => {
+    let musicalData: dataType[] = [];
+    let movieData: dataType[] = [];
+    let classicData: dataType[] = [];
+    let educationData: dataType[] = [];
+    let concertData: dataType[] = [];
+
     if (data.length !== 0) {
       for (let i = 0; i < data.length; i++) {
         if (

@@ -20,12 +20,9 @@ interface QueryType {
 }
 
 export default function Modal() {
-  const fadeinRef = useRef<HTMLInputElement>(null);
   const [popUp, setPopUp] = useState(false);
-
   const queryClient = useQueryClient();
   const query = queryClient.getQueryState("culture") as QueryType;
-
   const [firstRecommend, setFirstRecommend] = useState<DataType>();
   const dispatch = useDispatch();
   const count = useSelector((state: RootState) => {
@@ -89,17 +86,8 @@ export default function Modal() {
     }
   }, [count]);
 
-  useEffect(() => {
-    if (effect.fadeinState === true) {
-      setPopUp(true);
-      fadeinRef.current?.classList.add("fadein-effect");
-      fadeinRef.current?.classList.remove("hidden");
-      dispatch(modalVisible(true));
-    }
-  }, [effect.modalState]);
-
   return (
-    <div ref={fadeinRef} className="z-[1]">
+    <div className="z-[1]">
       <div className="fixed bottom-0 right-0 drop-shadow-lg m-3">
         {popUp ? (
           <div className="flex flex-col items-center w-[60vw] md:w-[30vw] h-[60vh] bg-white rounded-lg">
