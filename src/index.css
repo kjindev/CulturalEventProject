@@ -31,6 +31,19 @@ body {
   -webkit-text-stroke: 1px black;
 }
 
+.fadein-effect {
+  animation: fadein 1s linear forwards;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 ::selection {
   background: #a3a3a3;
   color: #000000;

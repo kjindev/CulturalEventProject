@@ -20,11 +20,15 @@ interface QueryType {
 }
 
 export default function Modal() {
-  const [popUp, setPopUp] = useState(false);
   const queryClient = useQueryClient();
   const query = queryClient.getQueryState("culture") as QueryType;
+
   const [firstRecommend, setFirstRecommend] = useState<DataType>();
+  const [popUp, setPopUp] = useState(false);
+  const fadeinRef = useRef<HTMLInputElement>(null);
+
   const dispatch = useDispatch();
+
   const count = useSelector((state: RootState) => {
     return state.counter;
   });
@@ -86,8 +90,17 @@ export default function Modal() {
     }
   }, [count]);
 
+  useEffect(() => {
+    if (effect.fadeinState === true) {
+      setPopUp(true);
+      fadeinRef.current?.classList.add("fadein-effect");
+      fadeinRef.current?.classList.remove("hidden");
+      dispatch(modalVisible(true));
+    }
+  }, [effect.modalState]);
+
   return (
-    <div className="z-[1]">
+    <div ref={fadeinRef} className="z-[1]">
       <div className="fixed bottom-0 right-0 drop-shadow-lg m-3">
         {popUp ? (
           <div className="flex flex-col items-center w-[60vw] md:w-[30vw] h-[60vh] bg-white rounded-lg">
@@ -107,7 +120,9 @@ export default function Modal() {
             </div>
             {data.recommendData.TITLE ? (
               <Link
-                to={`${data.recommendData.GUNAME}/1`}
+                to={`${data.recommendData.GUNAME}/${
+                  new Date().getTime() + Math.ceil(Math.random() * 100)
+                }`}
                 state={{
                   codename: data.recommendData.CODENAME,
                   guname: data.recommendData.GUNAME,
@@ -127,7 +142,9 @@ export default function Modal() {
               </Link>
             ) : (
               <Link
-                to={`${firstRecommend?.GUNAME}/1`}
+                to={`${firstRecommend?.GUNAME}/${
+                  new Date().getTime() + Math.ceil(Math.random() * 100)
+                }`}
                 state={{
                   codename: firstRecommend?.CODENAME,
                   guname: firstRecommend?.GUNAME,

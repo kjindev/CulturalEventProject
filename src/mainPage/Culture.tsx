@@ -382,7 +382,9 @@ export default function Culture({ data }: propsType) {
                 dataList.map((item, index) => (
                   <div key={index}>
                     <Link
-                      to={`${item.GUNAME}/${index}`}
+                      to={`${item.GUNAME}/${
+                        new Date().getTime() + Math.ceil(Math.random() * 100)
+                      }`}
                       state={{
                         codename: item.CODENAME,
                         guname: item.GUNAME,
