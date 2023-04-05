@@ -9,6 +9,7 @@ import {
   concertCntUpdate,
 } from "../store/counterSlice";
 import Modal from "../routePage/Modal";
+import Menu from "../routePage/Menu";
 
 interface propsType {
   data: {
@@ -102,6 +103,7 @@ export default function Culture({ data }: propsType) {
   return (
     <>
       <div className="w-[100%] h-[100vh] flex justify-center items-center bg-neutral-100 ">
+        <Menu />
         <Modal />
         <div className="w-[95%] h-[95%] md:w-[80%] md:h-[90%] flex flex-col justify-centerpx-1 py-3 md:p-7">
           <div className="h-[10%] text-center md:text-start">
@@ -382,9 +384,7 @@ export default function Culture({ data }: propsType) {
                 dataList.map((item, index) => (
                   <div key={index}>
                     <Link
-                      to={`${item.GUNAME}/${
-                        new Date().getTime() + Math.ceil(Math.random() * 100)
-                      }`}
+                      to={`${item.GUNAME}/${item.TITLE.charCodeAt(0)}`}
                       state={{
                         codename: item.CODENAME,
                         guname: item.GUNAME,

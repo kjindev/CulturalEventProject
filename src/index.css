@@ -44,6 +44,19 @@ body {
   }
 }
 
+.menu-moving {
+  animation: menumoving 0.3s linear forwards;
+}
+
+@keyframes menumoving {
+  0% {
+    transform: translate(100%, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 ::selection {
   background: #a3a3a3;
   color: #000000;

@@ -120,9 +120,9 @@ export default function Modal() {
             </div>
             {data.recommendData.TITLE ? (
               <Link
-                to={`${data.recommendData.GUNAME}/${
-                  new Date().getTime() + Math.ceil(Math.random() * 100)
-                }`}
+                to={`${
+                  data.recommendData.GUNAME
+                }/${data.recommendData.TITLE.charCodeAt(0)}`}
                 state={{
                   codename: data.recommendData.CODENAME,
                   guname: data.recommendData.GUNAME,
@@ -142,9 +142,9 @@ export default function Modal() {
               </Link>
             ) : (
               <Link
-                to={`${firstRecommend?.GUNAME}/${
-                  new Date().getTime() + Math.ceil(Math.random() * 100)
-                }`}
+                to={`${
+                  firstRecommend?.GUNAME
+                }/${firstRecommend?.TITLE.charCodeAt(0)}`}
                 state={{
                   codename: firstRecommend?.CODENAME,
                   guname: firstRecommend?.GUNAME,
