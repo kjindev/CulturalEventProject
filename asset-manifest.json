@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/CulturalEventProject/static/css/main.1b9ca12a.css",
-    "main.js": "/CulturalEventProject/static/js/main.eeb30ff6.js",
+    "main.css": "/CulturalEventProject/static/css/main.86d1bbd7.css",
+    "main.js": "/CulturalEventProject/static/js/main.2fbdd2ea.js",
     "index.html": "/CulturalEventProject/index.html",
-    "main.1b9ca12a.css.map": "/CulturalEventProject/static/css/main.1b9ca12a.css.map",
-    "main.eeb30ff6.js.map": "/CulturalEventProject/static/js/main.eeb30ff6.js.map"
+    "main.86d1bbd7.css.map": "/CulturalEventProject/static/css/main.86d1bbd7.css.map",
+    "main.2fbdd2ea.js.map": "/CulturalEventProject/static/js/main.2fbdd2ea.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b9ca12a.css",
-    "static/js/main.eeb30ff6.js"
+    "static/css/main.86d1bbd7.css",
+    "static/js/main.2fbdd2ea.js"
   ]
 }
