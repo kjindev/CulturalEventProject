@@ -43,14 +43,18 @@ export default function Menu() {
       <div className="fixed right-0 top-0">
         <div>
           {menuVisible ? (
-            <div className="p-2 hover:cursor-pointer">
-              <BsList size={20} onClick={() => setMenuVisible(false)} />
+            <div className="p-3 hover:cursor-pointer">
+              <BsList size={30} onClick={() => setMenuVisible(false)} />
             </div>
           ) : (
-            <div className="w-[100vw]">
-              <div className="menu-moving bg-neutral-200 ml-[20%] w-[80%] md:ml-[60%] md:w-[40%] h-[100vh] flex flex-col">
-                <div className="self-end p-2 hover:cursor-pointer">
-                  <BsX size={20} onClick={() => setMenuVisible(true)} />
+            <div className="w-[100vw] flex">
+              <div
+                onClick={() => setMenuVisible(true)}
+                className="w-[30%] md:w-[60%] h-[100vh]"
+              ></div>
+              <div className="menu-moving bg-neutral-200 w-[70%] md:w-[40%] h-[100vh] flex flex-col">
+                <div className="self-end p-3 hover:cursor-pointer">
+                  <BsX size={30} onClick={() => setMenuVisible(true)} />
                 </div>
                 <div className="pt-10">
                   <div className="text-center text-lg mb-3">관심 목록</div>
